@@ -205,7 +205,7 @@ body > #mainGrid > footer div {
     flex-basis: auto;
     align-items: center;
     justify-items: left;
-    margin: 0 var(--edgeSpace);
+    margin: 0 var(--mediumSpace);
 }
 
 body > #mainGrid > footer a {
