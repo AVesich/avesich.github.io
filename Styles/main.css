@@ -1,0 +1,468 @@
+/* Fonts */
+@import url("satoshi.css");
+
+/* @import url("../Support/Fonts/Satoshi-Bold.otf");
+@import url("../Support/Fonts/Satoshi-Italic.otf");
+@import url("../Support/Fonts/Satoshi-Regular.otf"); */
+
+/* Colors */
+:root {
+    --lightGray: #FAFAFA;
+    --darkGray: #E9E9E9;
+    --black: #212427;
+    --lightBeige: #ede6d1;
+    --beige: #e3d9ba;
+    --lightGreen: #468755;
+    --green: #19472a;
+
+    --largeSpace: 6rem;
+    --mediumSpace: 4rem;
+    --mobileEdgeSpace: 2rem;
+    --smallSpace: 2rem;
+    --oneSpace: 1rem;
+    --wordPadding: 0.5rem;
+
+    font-family: 'Satoshi-Variable', sans-serif;
+    font-family: 'Satoshi-VariableItalic', sans-serif;
+    font-family: 'Satoshi-Light', sans-serif;
+    font-family: 'Satoshi-LightItalic', sans-serif;
+    font-family: 'Satoshi-Regular', sans-serif;
+    font-family: 'Satoshi-Italic', sans-serif;
+    font-family: 'Satoshi-Medium', sans-serif;
+    font-family: 'Satoshi-MediumItalic', sans-serif;
+    font-family: 'Satoshi-Bold', sans-serif;
+    font-family: 'Satoshi-BoldItalic', sans-serif;
+    font-family: 'Satoshi-Black', sans-serif;
+    font-family: 'Satoshi-BlackItalic', sans-serif;
+    background-color: var(--lightGray);
+    background-image: url("../Support/Images/noise.png");
+
+    font-size: 1.2em;
+}
+
+/* Header attributes */
+body > #mainGrid > header {
+    grid-area: head;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    margin-right: var(--mediumSpace);
+    margin-left: auto;
+    padding: var(--smallSpace) 0;
+}
+
+body > #mainGrid > header #headerImage {
+    height: 64px;
+}
+
+/* Nav Bar attributes*/
+body > #mainGrid > #navBar {
+    grid-area: nav;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 var(--mediumSpace);
+}
+
+body > #mainGrid > #navBar > #openMenuButton {
+    display: none;
+    height: 48px;
+    width: 48px;
+}
+
+body > #mainGrid > #navBar > ul {
+    display: block;
+    margin: auto 0;
+    padding-inline-start: 0;
+}
+
+body > #mainGrid > #navBar ul li {
+    display: inline;
+    padding-right: var(--smallSpace);
+}
+
+@media screen and (max-width: 1024px) {
+    body > #mainGrid > #navBar {
+        margin: 0 var(--mobileEdgeSpace);
+    }
+
+    body > #mainGrid > header {
+        margin-right: var(--mobileEdgeSpace);
+    }
+
+    body > #mainGrid > #navBar > #openMenuButton {
+        display: block;
+    }
+    
+    body > #mainGrid > #navBar > ul {
+        display: none;
+    }
+}
+
+/* Nav Menu attributes */
+body > #mainGrid > #navMenu > #closeMenuButton {
+    height: var(--mediumSpace);
+    padding: var(--smallSpace);
+    width: 28px;
+}
+
+body > #mainGrid > #navMenu {
+    align-items: start;
+    background-color: var(--darkGray);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: baseline;
+    left: -256px;
+    position: fixed;
+    top: 0;
+    width: 256px;
+    z-index: 5;
+
+    transition: left 0.3s ease-out;
+}
+
+body > #mainGrid > #navMenu > ul {
+    margin: 0 auto 0 var(--smallSpace);
+}
+
+body > #mainGrid > #navMenu > ul > li {
+    padding: 0 0 var(--oneSpace) 0; /* Padding instead of margin to also increase interactive area */
+}
+
+
+/*Main body attributes*/
+body > #mainGrid {
+    font-family: Satoshi;
+    color: var(--black);
+
+    /* Grid Setup */
+    display: grid;
+    grid-template-areas: "nav  head"
+                         "main main"
+                         "foot foot";
+    grid-template-columns: 1fr auto; /* right col is 20 em, remaining is 1 fraction of the rest (the rest) */
+    grid-template-rows: auto 1fr auto;
+
+    align-items: center;
+    
+    min-height: 99vh;
+
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: 0;
+}
+
+body > #mainGrid > main {
+    grid-area: main;
+
+    /*Horizontal centering*/
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    margin: 0 var(--mediumSpace);
+}
+
+@media screen and (max-width: 1024px) {
+    body > #mainGrid > main {
+        margin: 0 var(--mobileEdgeSpace);
+    }
+}
+
+body > #mainGrid > main > .content-div {
+    max-width: 1920px;
+    width: 100%;
+}
+
+
+/* Footer style */
+body > #mainGrid > footer {
+    grid-area: foot;
+    bottom: 0px;
+    background: url("../Support/Images/noise.png") var(--lightGray);
+    font-size: 1.3rem;
+    padding-top: var(--smallSpace);
+    padding-bottom: var(--mediumSpace);
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+
+body > #mainGrid > footer div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: auto;
+    align-items: center;
+    justify-items: left;
+    margin: 0 var(--edgeSpace);
+}
+
+body > #mainGrid > footer a {
+    margin-right: var(--smallSpace);
+}
+
+body > #mainGrid > footer a:last-child {
+    margin-right: 0;
+}
+
+body > #mainGrid > footer a:hover {
+    color: var(--black);
+}
+
+@media screen and (max-width: 1024px) {
+    body > #mainGrid > footer div {
+        justify-content: center;  
+        margin: 0; 
+    }
+}
+
+/* Utility styles */
+p {
+    /* max-width: 35em; */
+    line-height: 1.6em;
+    font-size: 1rem;
+    margin: 0;
+    padding: var(--oneSpace) 0;
+}
+
+h1, h2, h3 {
+    padding: var(--oneSpace) 0;
+    margin: 0;
+    line-height: 1.2em;
+}
+
+body > #mainGrid .content-div #pageHeadingText  {
+    padding-top: 0;
+    padding-bottom: var(--smallSpace);
+}
+
+ul {
+    margin: 0 var(--smallSpace);
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+dl {
+    margin: 0 var(--smallSpace);
+    padding: 0;
+}
+
+p > a {
+    font-size: 1rem;
+}
+
+a {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--black);
+}
+
+a:hover {
+    color: var(--lightGreen);
+}
+
+nav a {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+nav a::after {
+    background-color: var(--lightGreen);
+    content: "";
+    position: absolute;
+    /* left: 0; */
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.25s ease-out;
+    z-index: -100;
+}
+
+nav a:hover::after {
+    left: 0;
+    margin-right: auto;
+    width: 100%;
+}
+
+#selected {
+    color: var(--green);
+    text-decoration: underline var(--green) 2px;
+    text-underline-offset: 0.35rem;
+}
+
+.icon {
+    width: 36px;
+    height: 36px;
+}
+
+/* Div flex properties are assigned with the additional .right-text-mode and .left-text-mode classes */
+.image-div {
+    align-items: center;
+    display: flex;
+    flex-basis: 100%;
+    gap: var(--mediumSpace);
+    margin-bottom: var(--largeSpace);
+}
+
+.right-text-mode {
+    flex-direction: row;
+    text-align: right;
+}
+
+.left-text-mode {
+    flex-direction: row-reverse;
+    text-align: left;
+}
+
+.image-div-text {
+    flex-grow: 1;
+    width: 100%;
+}
+.image-div-image {
+    flex-grow: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .image-div {
+        flex-direction: column-reverse;
+        text-align: left;
+        gap: var(--oneSpace);
+    }
+
+    .right-text-mode, .left-text-mode {
+        flex-wrap: wrap;
+    }
+
+    .image-div-image {
+        margin: 0 auto;
+    }
+}
+
+
+.a-button {
+    display: inline-block; /* This is needed to make the link act like a button (padding & margin effects surrounding elements), since a elements are inline by default */
+    background-color: var(--lightBeige);
+    border: none;
+    border-radius: var(--oneSpace);
+    font-weight: bold;
+    font-size: 1em;
+    margin: var(--oneSpace) 0;
+    padding: 1.3rem;
+    transition: all 0.1s ease-out;
+}
+
+.a-button:hover {
+    color: var(--black);
+    background-color: var(--beige);
+}
+
+/* Page dependent styles */
+/* 404 */
+#error .image-div {
+    margin-bottom: 0;
+}
+
+#error a {
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+/* Home */
+#home .image-div {
+    margin-bottom: 0;
+}
+
+/* Portfolio */
+#portfolio #portfolioImage {
+    height: 25rem;
+    transition: all 0.15s ease-out;
+}
+
+#portfolio #portfolioImage:hover {
+    -webkit-filter: drop-shadow(4px 10px 7px rgba(3, 4, 7, 0.15));
+    filter: drop-shadow(4px 10px 7px rgba(3, 4, 7, 0.15));
+    transform: scale(1.02, 1.02);
+}
+
+
+#portfolio #portfolioList:nth-child(odd) {
+    background-color: var(--darkGray);
+}
+
+#portfolio #portfolioList {
+    margin: 0;
+}
+
+/* Resume */
+#resume #resumeContent li, .date, .job-title, h3 {
+    /* Use margin instead of padding on the resume page since it equally spaces the list elemnents via vertical collapsing */
+    padding: 0;
+    margin: var(--oneSpace) 0;
+}
+
+#resume .employer {
+    font-weight: bold;
+}
+
+#resume .job-title {
+    font-style: italic;
+    font-weight: normal; /* This is to keep italic elements in headers light */
+}
+
+#resume .date {
+    font-weight: bold;
+}
+
+
+/* About */
+#about #aboutImage {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    object-position: 0 20%;
+    -webkit-mask-image: url(../Support/Images/About\ Crop\ Rectangle.svg);
+    -webkit-mask-size: 15rem 15rem;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url(../Support/Images/About\ Crop\ Rectangle.svg);
+    mask-size: 15rem 15rem;
+    mask-repeat: no-repeat;
+}
+
+#about #aboutApp:hover {
+    animation: appWiggle 0.35s infinite ease-out;
+}
+
+#about .right-text-mode {
+    text-align: left;
+}
+
+@keyframes appWiggle {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(-0.5deg); }
+    75% { transform: rotate(0.5deg); }
+    100% { transform: rotate(0); }
+}
+
+#about #appText {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: rgba(3, 4, 7, 0.4); /* For some reason var, opacity wouldn't work, but this is just 30% --black */
+}
