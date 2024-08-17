@@ -1,5 +1,5 @@
 /* Fonts */
-@import url("satoshi.css");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 /* @import url("../Support/Fonts/Satoshi-Bold.otf");
 @import url("../Support/Fonts/Satoshi-Italic.otf");
@@ -23,18 +23,7 @@
     --fracSpace: 0.7rem;
     --wordPadding: 0.5rem;
 
-    font-family: 'Satoshi-Variable', sans-serif;
-    font-family: 'Satoshi-VariableItalic', sans-serif;
-    font-family: 'Satoshi-Light', sans-serif;
-    font-family: 'Satoshi-LightItalic', sans-serif;
-    font-family: 'Satoshi-Regular', sans-serif;
-    font-family: 'Satoshi-Italic', sans-serif;
-    font-family: 'Satoshi-Medium', sans-serif;
-    font-family: 'Satoshi-MediumItalic', sans-serif;
-    font-family: 'Satoshi-Bold', sans-serif;
-    font-family: 'Satoshi-BoldItalic', sans-serif;
-    font-family: 'Satoshi-Black', sans-serif;
-    font-family: 'Satoshi-BlackItalic', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: var(--lightGray);
     background-image: url("../Support/Images/noise.png");
 
@@ -380,21 +369,38 @@ mark {
 }
 
 
-.a-button {
+.highlighter-button {
     display: inline-block; /* This is needed to make the link act like a button (padding & margin effects surrounding elements), since a elements are inline by default */
-    background-color: var(--lightBeige);
     border: none;
     border-radius: var(--oneSpace);
     font-weight: bold;
-    font-size: 1em;
-    margin: var(--oneSpace) 0;
-    padding: 1.3rem;
-    transition: all 0.1s ease-out;
+    font-style: italic;
+    font-size: 1.5rem;
+    padding: 2px 4px;
+    position: relative;
 }
 
-.a-button:hover {
+.highlighter-button::after {
+    background-color: greenyellow;
+    content: "";
+    position: absolute;
+    /* left: 0; */
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    transition: width 0.25s ease-out;
+    z-index: -100;
+}
+
+.highlighter-button:hover::after {
+    left: 0;
+    margin-right: auto;
+    width: 100%;
+}
+
+.highlighter-button:hover { /* disable hover color */
     color: var(--black);
-    background-color: var(--beige);
 }
 
 /* Page dependent styles */
@@ -545,4 +551,17 @@ mark {
     font-weight: bold;
     font-size: 1.2rem;
     color: rgba(3, 4, 7, 0.4); /* For some reason var, opacity wouldn't work, but this is just 30% --black */
+}
+
+/* Swift Birds */
+#swiftBirds {
+    background-image: url(../Support/Images/Swift-Stack.svg);
+    background-repeat: repeat-y;
+    background-size: 48px;
+    position: absolute;
+    top: -36px;
+    right: 4rem;
+    height: 100%;
+    width: 48px;
+    opacity: 50%;
 }
