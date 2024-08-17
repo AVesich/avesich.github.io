@@ -30,6 +30,12 @@
     font-size: 1em;
 }
 
+@media screen and (max-width: 800px) {
+    :root {
+        font-size: 0.6em;
+    }
+}
+
 /* Grid setup */
 #mainGrid {
     font-family: Satoshi;
@@ -94,55 +100,53 @@ header #headerImage {
     padding-right: var(--smallSpace);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 800px) {
     #navBar {
         margin: 0 var(--mobileEdgeSpace);
     }
 
-    body > #mainGrid > header {
-        margin-right: var(--mobileEdgeSpace);
+    header {
+        margin: 0 var(--mobileEdgeSpace);
     }
 
-    #navBar > #openMenuButton {
-        display: block;
-    }
-    
     #navBar > #navBarItems {
         display: none;
+    }
+
+    #navMenu > #navMenuItems {
+        display: flex;
     }
 }
 
 /* Nav Menu attributes */
-body > #mainGrid > #navMenu > #closeMenuButton {
-    height: var(--mediumSpace);
-    padding: var(--smallSpace);
-    width: 28px;
-}
-
-body > #mainGrid > #navMenu {
-    align-items: start;
-    background-color: var(--darkGray);
+#navMenu {
+    align-items: center;
+    justify-content: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
-    justify-content: baseline;
-    left: -256px;
     position: fixed;
     top: 0;
-    width: 256px;
+    right: var(--oneSpace);
+    width: 30px;
     z-index: 5;
 
     transition: left 0.3s ease-out;
 }
 
-body > #mainGrid > #navMenu > ul {
-    margin: 0 auto 0 var(--smallSpace);
+#navMenuItems {
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    gap: var(--smallSpace);
+    margin: 0;
 }
 
-body > #mainGrid > #navMenu > ul > li {
-    padding: 0 0 var(--oneSpace) 0; /* Padding instead of margin to also increase interactive area */
+.nav-icon {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%) sepia(4%) saturate(2090%) hue-rotate(169deg) brightness(96%) contrast(85%);
 }
-
 
 /* Main body attributes */
 body::-webkit-scrollbar {
@@ -168,9 +172,9 @@ body > #mainGrid > main {
     margin: 0 var(--mediumSpace);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 800px) {
     body > #mainGrid > main {
-        margin: 0 var(--mobileEdgeSpace);
+        margin: 0 var(--mediumSpace);
     }
 }
 
@@ -215,7 +219,7 @@ body > #mainGrid > footer a:hover {
     color: var(--black);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 800px) {
     body > #mainGrid > footer div {
         justify-content: center;  
         margin: 0; 
@@ -271,13 +275,13 @@ a:hover {
     color: var(--lightGreen);
 }
 
-nav a {
+.nav-text {
     display: inline-block;
     position: relative;
     padding-bottom: 4px;
 }
 
-nav a::after {
+.nav-text::after {
     background-color: var(--lightGreen);
     content: "";
     position: absolute;
@@ -290,7 +294,7 @@ nav a::after {
     z-index: -100;
 }
 
-nav a:hover::after {
+.nav-text:hover::after {
     left: 0;
     margin-right: auto;
     width: 100%;
@@ -352,7 +356,7 @@ mark {
     flex-grow: 0;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 800px) {
     .image-div {
         flex-direction: column-reverse;
         text-align: left;
@@ -420,7 +424,7 @@ mark {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: var(--largeSpace) 0;
+    padding-bottom: var(--largeSpace);
 }
 
 #homeHeader > #topText {
@@ -436,14 +440,25 @@ mark {
 #homeHeader > img {
     z-index: -5;
     width: 512px;
-    margin-top: -7rem;
-    margin-bottom: -6rem;
+    margin-top: -6rem;
+    margin-bottom: -5rem;
     mask-image: linear-gradient(to bottom, black 75%, rgba(0,0,0,0));
+}
+
+@media screen and (max-width: 800px) {
+    #homeHeader > #topText h1 {
+        font-size: 8rem;
+    }
+
+    #homeHeader > img {
+        margin-top: -7rem;
+        width: 340px;
+    }
 }
 
 #homeHeader > #bottomText {
     text-align: center;
-    width: 900px;
+    max-width: 900px;
 }
 
 #homeHeader > #bottomText h3 {
@@ -560,8 +575,14 @@ mark {
     background-size: 48px;
     position: absolute;
     top: -36px;
-    right: 4rem;
+    left: var(--mediumSpace);
     height: 100%;
     width: 48px;
     opacity: 50%;
+}
+
+@media screen and (max-width: 800px) {
+    #swiftBirds {
+        left: var(--oneSpace);
+    }
 }
