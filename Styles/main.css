@@ -38,53 +38,75 @@
     background-color: var(--lightGray);
     background-image: url("../Support/Images/noise.png");
 
-    font-size: 1.2em;
+    font-size: 1em;
+}
+
+/* Grid setup */
+#mainGrid {
+    font-family: Satoshi;
+    color: var(--black);
+
+    /* Grid Setup */
+    display: grid;
+    grid-template-areas: "head  head"
+                         "main main"
+                         "foot foot";
+    grid-template-columns: 1fr auto; /* right col is 20 em, remaining is 1 fraction of the rest (the rest) */
+    grid-template-rows: auto 1fr auto;
+
+    align-items: center;
+    
+    min-height: 99vh;
+
+}
+
+/* Name title attributes */
+#nameText {
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 /* Header attributes */
-body > #mainGrid > header {
+header {
     grid-area: head;
     display: flex;
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    margin-right: var(--mediumSpace);
-    margin-left: auto;
+    margin: 0 var(--mediumSpace);
 }
 
-body > #mainGrid > header #headerImage {
+header #headerImage {
     height: 64px;
 }
 
 /* Nav Bar attributes*/
-body > #mainGrid > #navBar {
-    grid-area: nav;
+#navBar {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 0 var(--mediumSpace);
+    margin: 0 auto;
     padding: var(--mediumSpace) 0;
 }
 
-body > #mainGrid > #navBar > #openMenuButton {
+#navBar > #openMenuButton {
     display: none;
     height: 48px;
     width: 48px;
 }
 
-body > #mainGrid > #navBar > ul {
+#navBar > #navBarItems {
     display: block;
-    margin: auto 0;
     padding-inline-start: 0;
 }
 
-body > #mainGrid > #navBar ul li {
+#navBar > #navBarItems > li {
     display: inline;
     padding-right: var(--smallSpace);
 }
 
 @media screen and (max-width: 1024px) {
-    body > #mainGrid > #navBar {
+    #navBar {
         margin: 0 var(--mobileEdgeSpace);
     }
 
@@ -92,11 +114,11 @@ body > #mainGrid > #navBar ul li {
         margin-right: var(--mobileEdgeSpace);
     }
 
-    body > #mainGrid > #navBar > #openMenuButton {
+    #navBar > #openMenuButton {
         display: block;
     }
     
-    body > #mainGrid > #navBar > ul {
+    #navBar > #navBarItems {
         display: none;
     }
 }
@@ -133,31 +155,14 @@ body > #mainGrid > #navMenu > ul > li {
 }
 
 
-/*Main body attributes*/
-body > #mainGrid {
-    font-family: Satoshi;
-    color: var(--black);
-
-    /* Grid Setup */
-    display: grid;
-    grid-template-areas: "nav  head"
-                         "main main"
-                         "foot foot";
-    grid-template-columns: 1fr auto; /* right col is 20 em, remaining is 1 fraction of the rest (the rest) */
-    grid-template-rows: auto 1fr auto;
-
-    align-items: center;
-    
-    min-height: 99vh;
-
-}
-
+/* Main body attributes */
 body::-webkit-scrollbar {
     display: none;
 }
 
 body {
     -ms-overflow-style: none;
+    position: relative; /* Necessary for swiftBirds 100% height to work as expected */
     scrollbar-width: 0;
 }
 
@@ -317,6 +322,20 @@ nav a:hover::after {
     list-style-type: '-  ';
 }
 
+mark {
+    font-style: italic;
+    padding: 0 0.2rem;
+}
+
+.green-mark {
+    background-color: greenyellow;
+    padding: 0 0.5rem;
+}
+
+.orange-mark {
+    background-color: orange;
+}
+
 /* Div flex properties are assigned with the additional .right-text-mode and .left-text-mode classes */
 .image-div {
     align-items: center;
@@ -390,8 +409,51 @@ nav a:hover::after {
 }
 
 /* Home */
-#home .image-div {
-    margin-bottom: 0;
+#homeHeader {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--largeSpace) 0;
+}
+
+#homeHeader > #topText {
+    z-index: -10;
+}
+
+#homeHeader > #topText h1 {
+    font-size: 10rem;
+    font-weight: 900;
+    padding: 0;
+}
+
+#homeHeader > img {
+    z-index: -5;
+    width: 512px;
+    margin-top: -7rem;
+    margin-bottom: -6rem;
+    mask-image: linear-gradient(to bottom, black 75%, rgba(0,0,0,0));
+}
+
+#homeHeader > #bottomText {
+    text-align: center;
+    width: 900px;
+}
+
+#homeHeader > #bottomText h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 0;
+}
+
+#homeHeader > #bottomText p {
+    font-size: 1.5rem;
+    font-weight: normal;
+    padding: 0;
+}
+
+#resumeButton {
+    padding-top: var(--smallSpace);
 }
 
 /* Portfolio */
