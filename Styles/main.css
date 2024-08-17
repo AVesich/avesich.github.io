@@ -146,6 +146,10 @@ header #headerImage {
     filter: invert(100%) sepia(4%) saturate(2090%) hue-rotate(169deg) brightness(96%) contrast(85%);
 }
 
+#selectedIcon.nav-icon {
+    filter: invert(70%) sepia(23%) saturate(1246%) hue-rotate(89deg) brightness(86%) contrast(89%);
+}
+
 /* Main body attributes */
 body::-webkit-scrollbar {
     display: none;
