@@ -449,7 +449,7 @@ mark {
 
 @media screen and (max-width: 800px) {
     #homeHeader > #topText h1 {
-        font-size: 8rem;
+        font-size: 7rem;
     }
 
     #homeHeader > img {
@@ -470,7 +470,7 @@ mark {
 }
 
 #homeHeader > #bottomText p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: normal;
     padding: 0;
 }
