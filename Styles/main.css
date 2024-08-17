@@ -442,20 +442,9 @@ mark {
 #homeHeader > img {
     z-index: -5;
     width: 512px;
-    margin-top: -6rem;
+    margin-top: -6.5rem;
     margin-bottom: -5rem;
     mask-image: linear-gradient(to bottom, black 75%, rgba(0,0,0,0));
-}
-
-@media screen and (max-width: 800px) {
-    #homeHeader > #topText h1 {
-        font-size: 7rem;
-    }
-
-    #homeHeader > img {
-        margin-top: -7rem;
-        width: 340px;
-    }
 }
 
 #homeHeader > #bottomText {
@@ -470,13 +459,28 @@ mark {
 }
 
 #homeHeader > #bottomText p {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: normal;
     padding: 0;
 }
 
 #resumeButton {
     padding-top: var(--smallSpace);
+}
+
+@media screen and (max-width: 800px) {
+    #homeHeader > #topText h1 {
+        font-size: 7rem;
+    }
+
+    #homeHeader > img {
+        margin-top: -7rem;
+        width: 340px;
+    }
+
+    #homeHeader > #bottomText p {
+        font-size: 1.6rem;
+    }    
 }
 
 /* Portfolio */
